@@ -1,0 +1,33 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "Personal web page for demoing",
+  "keywords": [
+    "webpage"
+  ],
+  "homepage": "https://github.com/Andni/andni.github.io/canvas",
+  "bugs": {
+    "url": "https://github.com/Andni/andni.github.io/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andni/andni.github.io.git"
+  },
+  "license": "UNLICENSED",
+  "author": "Andreas Niklasson",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --config vite.config.ts",
+    "preview": "vite preview --config vite.config.ts",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "pixi.js": "^8.11.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "vite": "^7.0.3"
+  }
+}
