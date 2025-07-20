@@ -1,8 +1,14 @@
 import { type UserConfig } from 'vite'
+import wasm from "vite-plugin-wasm";
 
 export default {
-    root: "src",
+
     build: {
-        outDir: "../dist",
+        outDir: "/dist",
     },
+    plugins: [
+        wasm(),
+    ]
+
+
 } satisfies UserConfig
