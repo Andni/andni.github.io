@@ -2,12 +2,6 @@ import { Application, Buffer, BufferImageSource, BufferResource, BufferUsage, Sp
 
 import * as wasm from '../libs/hello-rust-wasm/pkg';
 
-// ...
-
-// export function greet() {
-wasm.greet();
-// }
-
 
 (async () => {
   // Create a new application

@@ -1,5 +1,6 @@
 import { type UserConfig } from 'vite'
 import wasm from "vite-plugin-wasm";
+import pluginChecker from 'vite-plugin-checker';
 
 export default {
 
@@ -7,7 +8,8 @@ export default {
         outDir: "/dist",
     },
     plugins: [
-        wasm(),
+        pluginChecker({ typescript: true }),
+        wasm()
     ]
 
 
