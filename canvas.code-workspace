@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"rust-analyzer.linkedProjects": [
+				"C:/Users/archl/git-repos/canvas/libs/hello-rust-wasm/Cargo.toml"
+		]
+	}
+}

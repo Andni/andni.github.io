@@ -1,6 +1,6 @@
-import { Application, Buffer, BufferImageSource, BufferResource, BufferUsage, Sprite, Texture } from "pixi.js";
+import { Application, BufferImageSource, Sprite, Texture } from "pixi.js";
 
-import * as wasm from '../libs/hello-rust-wasm/pkg';
+// import * as wasm from '../libs/hello-rust-wasm/pkg';
 
 
 (async () => {
