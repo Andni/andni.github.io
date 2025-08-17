@@ -5,7 +5,7 @@ import pluginChecker from 'vite-plugin-checker';
 export default {
 
     build: {
-        outDir: "/dist",
+        outDir: "./dist",
     },
     plugins: [
         pluginChecker({ typescript: true }),
