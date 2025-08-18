@@ -5,10 +5,14 @@ import vertex from './shader.vert?raw';
 import fragment from './shader.frag?raw';
 import source from './source.wgsl?raw';
 
+declare let globalThis: any;
+
 (async () => {
   // Create a new application
   const app = new Application();
 
+
+  globalThis.__PIXI_APP__ = app;
   // Initialize the application
   await app.init({ background: "#1099bb", resizeTo: window, preference: "webgl" });
 
@@ -33,11 +37,22 @@ import source from './source.wgsl?raw';
 
   const geometry = new Geometry({
     attributes: {
-      aPosition: [-100, -50, 100, -50, 0, 100],
-      aColor: [1, 0, 0, 0, 1, 0, 0, 0, 1],
+      aPosition: [
+        -100, -100,
+        100, -100,
+        100, 100,
+        -100, 100
+      ],
+      aColor: [
+        1, 0, 0,
+        0, 1, 0,
+        0, 0, 1,
+        1, 1, 1
+      ],
     },
+    topology: "triangle-strip",
+    indexBuffer: [0, 1, 2, 2, 3, 0]
   });
-
 
   const gl = { vertex, fragment };
 
@@ -57,24 +72,16 @@ import source from './source.wgsl?raw';
     gpu,
   });
 
-  const triangle = new Mesh({
+  const quad = new Mesh({
     geometry,
     shader,
   });
 
 
-
-
-
-  // app.ticker.add(() => {
-  //   pixels.forEach((_, i) => {
-  //     pixels[i] = Math.floor(Math.random() * 255);
-  //   });
-  //   pixelResource.update();
-  // }); 
-  // 6. Add the sprite to the stage
-  app.stage.addChild(triangle);
-  triangle.position.x = 500;
+  app.stage.addChild(quad);
+  quad.position.x = 500;
+  quad.position.y = 500;
 
 
 })();
+
