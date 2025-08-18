@@ -3,7 +3,7 @@ import wasm from "vite-plugin-wasm";
 import pluginChecker from 'vite-plugin-checker';
 
 export default {
-
+    assetsInclude: ['**/*.frag', '**/*.vert', '**/*.glsl', '**/*.wgsl'],
     build: {
         outDir: "./dist",
     },
