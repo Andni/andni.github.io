@@ -25,7 +25,6 @@ declare let globalThis: any;
   // Append the application canvas to the document body
   document.getElementById("pixi-container")!.appendChild(app.canvas);
   const sdf = wasm.generate_sdf(new Uint8Array(fontData));
-  console.log(sdf.width, sdf.height, sdf.data);
 
   // Create BufferResource for audio texture
   const pixelResource = new BufferImageSource({ resource: sdf.data, width: sdf.width, height: sdf.height, format: "r32float" });
@@ -49,6 +48,12 @@ declare let globalThis: any;
         0, 0, 1,
         1, 1, 1
       ],
+      aUV: [
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1
+      ],
     },
     topology: "triangle-strip",
     indexBuffer: [0, 1, 2, 2, 3, 0]
@@ -70,6 +75,9 @@ declare let globalThis: any;
   const shader = Shader.from({
     gl,
     gpu,
+    resources: {
+      uTexture: audioTexture.source,
+    },
   });
 
   const quad = new Mesh({
