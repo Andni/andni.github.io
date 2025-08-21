@@ -1,3 +1,5 @@
+use std::char;
+
 use easy_signed_distance_field as sdf;
 use wasm_bindgen::prelude::*;
 
@@ -18,13 +20,13 @@ impl WasmSdfRaster {
 }
 
 #[wasm_bindgen]
-pub fn generate_sdf(font_data: &[u8]) -> WasmSdfRaster {
+pub fn generate_sdf(font_data: &[u8], char: char) -> WasmSdfRaster {
     let font: sdf::Font = sdf::Font::from_bytes(font_data, Default::default()).expect("Failed to parse font file");
 
     let px:f32 = 64.0;
     let padding:i32 = 2;
     let spread:f32 = 6.0;
-    let (_a_metrics, a_glyph_sdf) = font.sdf_generate(px, padding, spread, 'a').unwrap();
+    let (_a_metrics, a_glyph_sdf) = font.sdf_generate(px, padding, spread, char).unwrap();
 
 
     return WasmSdfRaster {

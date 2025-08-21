@@ -24,7 +24,7 @@ declare let globalThis: any;
 
   // Append the application canvas to the document body
   document.getElementById("pixi-container")!.appendChild(app.canvas);
-  const sdf = wasm.generate_sdf(new Uint8Array(fontData));
+  const sdf = wasm.generate_sdf(new Uint8Array(fontData), "B");
 
   // Create BufferResource for audio texture
   const pixelResource = new BufferImageSource({ resource: sdf.data, width: sdf.width, height: sdf.height, format: "r32float" });
@@ -34,13 +34,16 @@ declare let globalThis: any;
   sprite.scale = 10;
 
 
+  const w = audioTexture.width * 10;
+  const h = audioTexture.height * 10;
+
   const geometry = new Geometry({
     attributes: {
       aPosition: [
-        -100, -100,
-        100, -100,
-        100, 100,
-        -100, 100
+        0, 0,
+        w, 0,
+        w, h,
+        0, h
       ],
       aColor: [
         1, 0, 0,
@@ -87,8 +90,8 @@ declare let globalThis: any;
 
 
   app.stage.addChild(quad);
-  quad.position.x = 500;
-  quad.position.y = 500;
+  quad.position.x = sprite.width;
+  quad.position.y = 0;
 
 
 })();
