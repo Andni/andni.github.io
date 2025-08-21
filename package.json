@@ -21,7 +21,8 @@
     "dev": "vite",
     "build": "vite build --config vite.config.ts",
     "preview": "vite preview --config vite.config.ts",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "wasm": "wasm-pack build ./libs/hello-rust-wasm"
   },
   "dependencies": {
     "pixi.js": "^8.11.0"
